@@ -1,0 +1,6 @@
+"reverseProxy" : {
+        "enabled" : true,
+        "host" : "localhost",
+        "context":"/apimanager/store",
+        "regContext":""
+}

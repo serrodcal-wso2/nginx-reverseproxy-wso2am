@@ -1,0 +1,20 @@
+version: '2'
+services:
+    nginx:
+        image: nginx
+        volumens:
+            - ./apimanager/conf/nginx.conf:/etc/nginx/sites-enabled/default/nginx.conf
+        ports:
+            - "8080:8080"
+        networks:
+            - reverseproxy
+    apimanager:
+        image: serrodcal/apimanager
+        build: ./apimanager
+        ports:
+            - "9443:9443"
+        networks:
+            - reverseproxy
+networks:
+  reverseproxy:
+    driver: bridge
