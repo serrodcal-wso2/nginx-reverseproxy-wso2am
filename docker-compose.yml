@@ -3,7 +3,7 @@ services:
     nginx:
         image: nginx
         volumens:
-            - ./apimanager/conf/nginx.conf:/etc/nginx/sites-enabled/default/nginx.conf
+            - ./nginx/conf/nginx.conf:/etc/nginx/sites-enabled/default/nginx.conf
         ports:
             - "8080:8080"
         networks:
@@ -13,6 +13,9 @@ services:
         build: ./apimanager
         ports:
             - "9443:9443"
+            - "8243:8243"
+            - "8280:8280"
+            - "9763:9763"
         networks:
             - reverseproxy
 networks:
