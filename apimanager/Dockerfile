@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get clean && \
     unzip /opt/wso2am-2.0.0.zip -d /opt && \
     rm /opt/wso2am-2.0.0.zip && \
-    keytool -import -file /opt/nginx.crt -keystore /opt/wso2am-2.0.0/repository/resources/security/client-truststore.jks -storepass wso2carbon -alias wso2carbon2 && \
+    keytool -import -file /opt/nginx.crt -keystore /opt/wso2am-2.0.0/repository/resources/security/client-truststore.jks -storepass wso2carbon -alias wso2carbon2 -noprompt && \
     rm /opt/nginx.crt
 
 EXPOSE 9443 8243 8280 9763

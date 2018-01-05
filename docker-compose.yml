@@ -2,8 +2,9 @@ version: '2'
 services:
     nginx:
         image: nginx
-        volumens:
+        volumes:
             - ./nginx/conf/nginx.conf:/etc/nginx/sites-enabled/default/nginx.conf
+            - ./nginx/key/nginx.key:/etc/nginx/ssl/nginx.key
         ports:
             - "8080:8080"
         networks:
@@ -11,6 +12,11 @@ services:
     apimanager:
         image: serrodcal/apimanager
         build: ./apimanager
+        volumes:
+            - ./apimanager/publisher/site.json:opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json
+            - ./apimanager/store/site.json:opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/store/site/conf/site.json
+            - ./apimanager/carbon/carbon.xml:opt/wso2am-2.0.0/repository/conf/carbon.xml
+            - ./apimanager/api-manager/api-manager.xml:opt/wso2am-2.0.0/repository/conf/api-manager.xml
         ports:
             - "9443:9443"
             - "8243:8243"
