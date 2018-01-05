@@ -13,10 +13,10 @@ services:
         image: serrodcal/apimanager
         build: ./apimanager
         volumes:
-            - ./apimanager/publisher/site.json:opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json
-            - ./apimanager/store/site.json:opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/store/site/conf/site.json
-            - ./apimanager/carbon/carbon.xml:opt/wso2am-2.0.0/repository/conf/carbon.xml
-            - ./apimanager/api-manager/api-manager.xml:opt/wso2am-2.0.0/repository/conf/api-manager.xml
+            - ./apimanager/publisher/site.json:/opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/publisher/site/conf/site.json
+            - ./apimanager/store/site.json:/opt/wso2am-2.0.0/repository/deployment/server/jaggeryapps/store/site/conf/site.json
+            - ./apimanager/carbon/carbon.xml:/opt/wso2am-2.0.0/repository/conf/carbon.xml
+            - ./apimanager/api-manager/api-manager.xml:/opt/wso2am-2.0.0/repository/conf/api-manager.xml
         ports:
             - "9443:9443"
             - "8243:8243"
